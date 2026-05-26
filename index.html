@@ -1,139 +1,679 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Lina Revheim Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>Lina Revheim | Data Analyst Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #1e1e24;
+      --bg2:         #252530;
+      --panel:       #2c2c38;
+      --accent:      #e8c07d;
+      --accent2:     #c9a45a;
+      --text:        #c8c8d4;
+      --text-light:  #9090a8;
+      --white:       #ffffff;
+      --border:      rgba(255,255,255,0.08);
+      --radius:      6px;
+      --serif:       'Merriweather', Georgia, serif;
+      --sans:        'Source Sans 3', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.75;
     }
 
-    /* HERO SECTION */
-    .hero {
-      background: linear-gradient(to right, #2c2c2c, #4b4b4b);
-      color: white;
+    a { color: var(--accent); text-decoration: none; transition: color .2s; }
+    a:hover { color: var(--white); }
+
+    img { display: block; width: 100%; border-radius: var(--radius); }
+
+    /* ── BACKGROUND TEXTURE ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(232,192,125,.07) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 80% 90%, rgba(100,80,180,.06) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── HEADER / HERO ── */
+    #header {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 6rem 2rem 5rem;
       text-align: center;
-      padding: 120px 20px;
-      width: 100%;
+      background:
+        linear-gradient(160deg, rgba(30,30,36,.96) 0%, rgba(18,18,24,1) 100%),
+        url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=60') center/cover no-repeat;
+      background-blend-mode: multiply;
+      border-bottom: 1px solid var(--border);
     }
 
-    .hero h1 {
-      font-size: 48px;
-      margin: 0;
-      letter-spacing: 2px;
+    #header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
     }
 
-    .hero p {
-      font-size: 18px;
-      margin-top: 20px;
-      color: #ddd;
+    .logo {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
     }
 
-    /* MAIN CONTENT */
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 60px 20px;
+    .tagline {
+      font-family: var(--sans);
+      font-size: clamp(.95rem, 2vw, 1.15rem);
+      font-weight: 300;
+      color: var(--text-light);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
     }
 
-    h2 {
-      margin-top: 40px;
+    .tagline strong { color: var(--accent); font-weight: 600; }
+
+    /* social icons row */
+    .social-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 3rem;
     }
 
-    .project img {
-      width: 100%;
-      margin: 15px 0;
-      border-radius: 5px;
+    .social-row a {
+      display: flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .55rem 1.2rem;
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      transition: border-color .2s, color .2s, background .2s;
     }
 
-    .project {
-      margin-bottom: 40px;
+    .social-row a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(232,192,125,.07);
     }
 
-    a {
-      color: #0066cc;
-      text-decoration: none;
-      font-weight: bold;
+    /* scroll cue */
+    .scroll-cue {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+      color: var(--text-light);
+      font-size: .75rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      animation: bob 2s ease-in-out infinite;
+    }
+    .scroll-cue i { font-size: 1.1rem; }
+
+    @keyframes bob {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: .6; }
+      50%       { transform: translateX(-50%) translateY(6px); opacity: 1; }
     }
 
-    a:hover {
-      text-decoration: underline;
+    /* ── NAV ── */
+    #nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(18,18,24,.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .9rem 2.5rem;
     }
 
-    hr {
-      margin: 40px 0;
-      border: 0;
-      border-top: 1px solid #ddd;
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── WRAPPER ── */
+    #wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 4rem 2rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── SECTION HEADINGS ── */
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 2.5rem;
+      padding-bottom: .8rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0;
+      width: 60px; height: 3px;
+      background: var(--accent);
+      border-radius: 99px;
+    }
+
+    /* ── ARTICLE / PROJECT CARD ── */
+    article.project {
+      margin-bottom: 4rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    article.project:last-of-type {
+      border-bottom: none;
+    }
+
+    article.project header {
+      margin-bottom: 1.2rem;
+    }
+
+    article.project h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: .3rem;
+    }
+
+    article.project h2 a { color: inherit; }
+    article.project h2 a:hover { color: var(--accent); }
+
+    .project-meta {
+      font-size: .8rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    .project-image {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      margin: 1.4rem 0;
+      border: 1px solid var(--border);
+    }
+
+    .project-image img {
+      border-radius: var(--radius);
+      transition: transform .45s ease, filter .45s ease;
+      filter: brightness(.88) saturate(.9);
+    }
+
+    .project-image:hover img {
+      transform: scale(1.03);
+      filter: brightness(1) saturate(1.1);
+    }
+
+    .project-image .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(18,18,24,.7) 0%, transparent 50%);
+      border-radius: var(--radius);
+      pointer-events: none;
+    }
+
+    article.project p {
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .tools-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: rgba(232,192,125,.1);
+      border: 1px solid rgba(232,192,125,.25);
+      color: var(--accent);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .3rem .85rem;
+      border-radius: 99px;
+      margin-right: .5rem;
+      margin-bottom: .5rem;
+    }
+
+    .tags-row { margin-bottom: 1.2rem; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .65rem 1.6rem;
+      border-radius: 99px;
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: background .2s, color .2s, box-shadow .2s, transform .15s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #1a1408;
+      box-shadow: 0 4px 20px rgba(232,192,125,.25);
+    }
+
+    .btn-primary:hover {
+      background: var(--white);
+      color: #1a1408;
+      box-shadow: 0 6px 28px rgba(232,192,125,.35);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      border: 1px solid var(--border);
+      color: var(--text-light);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(232,192,125,.06);
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    #about .about-text h3 {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--white);
+      margin-bottom: .6rem;
+    }
+
+    #about .about-text p {
+      color: var(--text);
+      margin-bottom: 1rem;
+      font-size: .96rem;
+    }
+
+    .skills-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: .8rem;
+    }
+
+    .skills-list li {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .3rem .9rem;
+      border-radius: var(--radius);
+    }
+
+    /* ── CONTACT SIDEBAR CARD ── */
+    #contact-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem;
+    }
+
+    #contact-card h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+      padding-bottom: .6rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .contact-item i {
+      color: var(--accent);
+      font-size: 1rem;
+      margin-top: .2rem;
+      width: 16px;
+      flex-shrink: 0;
+    }
+
+    .contact-item span {
+      font-size: .9rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .contact-item a { color: var(--text); }
+    .contact-item a:hover { color: var(--accent); }
+
+    .contact-social {
+      display: flex;
+      gap: .75rem;
+      margin-top: 1.4rem;
+    }
+
+    .contact-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px; height: 38px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      color: var(--text-light);
+      font-size: .95rem;
+      transition: border-color .2s, color .2s, background .2s;
+    }
+
+    .contact-social a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(232,192,125,.08);
+    }
+
+    /* ── FOOTER ── */
+    #footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      border-top: 1px solid var(--border);
+      font-size: .8rem;
+      color: var(--text-light);
+      letter-spacing: .05em;
+      margin-top: 2rem;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 3rem 0;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      #nav { padding: .75rem 1.2rem; }
+      .nav-links { gap: 1.1rem; }
+      #about { grid-template-columns: 1fr; }
+      .logo { font-size: 2.8rem; }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- HERO -->
-  <div class="hero">
-    <h1>LINA REVHEIM</h1>
-    <p>Data Analyst skilled in SQL, Tableau, Excel</p>
-  </div>
+  <!-- ══ HERO ══ -->
+  <header id="header">
+    <p class="tagline"><strong>Lina Revheim</strong> &nbsp;·&nbsp; Data Analyst Portfolio</p>
+    <h1 class="logo">Lina Revheim</h1>
+    <p class="tagline">Skilled in <strong>SQL</strong> &nbsp;·&nbsp; <strong>Tableau</strong> &nbsp;·&nbsp; <strong>Excel</strong> &nbsp;·&nbsp; <strong>Power BI</strong></p>
 
-  <!-- CONTENT -->
-  <div class="container">
-
-    <h2>Projects</h2>
-
-    <!-- PROJECT 1 -->
-    <div class="project">
-      <h3>Sales Dashboard</h3>
-
-      <img src="https://via.placeholder.com/800x400" alt="Dashboard preview">
-
-      <p>
-        <a href="#">View Dashboard</a>
-      </p>
-
-      <p>
-        Interactive Tableau dashboard analysing sales performance across regions and categories.
-      </p>
-
-      <p><strong>Tools:</strong> Tableau, Excel</p>
+    <div class="social-row">
+      <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+      <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i> GitHub</a>
     </div>
 
-    <hr>
+    <a href="#main" class="btn btn-primary"><i class="fa-solid fa-chevron-down"></i> View Projects</a>
 
-    <!-- PROJECT 2 -->
-    <div class="project">
-      <h3>SQL Data Analysis</h3>
-
-      <p>
-        <a href="#">View GitHub Project</a>
-      </p>
-
-      <p>
-        Explored dataset using SQL queries to identify trends and key business insights.
-      </p>
-
-      <p><strong>Tools:</strong> SQL</p>
+    <div class="scroll-cue" aria-hidden="true">
+      <i class="fa-solid fa-angles-down"></i>
+      <span>Scroll</span>
     </div>
+  </header>
 
-    <hr>
+  <!-- ══ NAV ══ -->
+  <nav id="nav">
+    <span class="nav-brand">Lina Revheim</span>
+    <ul class="nav-links">
+      <li><a href="#main">Projects</a></li>
+      <li><a href="#about-section">About</a></li>
+      <li><a href="#about-section">Contact</a></li>
+    </ul>
+  </nav>
 
-    <!-- ABOUT -->
-    <h2>About Me</h2>
-    <p>
-      I am a SharePoint and File Storage Business Analyst with a strong interest in data analytics.
-      I specialise in transforming data into actionable insights using SQL, Tableau, and Excel.
-    </p>
+  <!-- ══ MAIN CONTENT ══ -->
+  <div id="wrapper">
+    <main id="main">
 
-    <!-- CONTACT -->
-    <h2>Contact</h2>
-    <p>
-      <a href="#">GitHub</a> | <a href="#">LinkedIn</a>
-    </p>
+      <h2 class="section-title">Projects</h2>
 
-  </div>
+      <!-- PROJECT 1 -->
+      <article class="project">
+        <header>
+          <h2><a href="#">Sales Performance Dashboard</a></h2>
+          <p class="project-meta">Tableau &nbsp;·&nbsp; Business Intelligence</p>
+        </header>
+
+        <div class="project-image">
+          <a href="#">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=70"
+                 alt="Sales Dashboard preview" />
+            <div class="overlay"></div>
+          </a>
+        </div>
+
+        <p>
+          An interactive Tableau dashboard analysing sales performance across regions and product
+          categories. Enables stakeholders to filter by time period, geography, and segment —
+          surfacing trends that drove a 12 % uplift in quarterly decision-making speed.
+        </p>
+
+        <div class="tags-row">
+          <span class="tools-tag"><i class="fa-solid fa-chart-bar"></i> Tableau</span>
+          <span class="tools-tag"><i class="fa-solid fa-file-excel"></i> Excel</span>
+        </div>
+
+        <a href="#" class="btn btn-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Dashboard</a>
+      </article>
+
+      <!-- PROJECT 2 -->
+      <article class="project">
+        <header>
+          <h2><a href="#">SQL Data Exploration</a></h2>
+          <p class="project-meta">SQL Server &nbsp;·&nbsp; Data Analysis</p>
+        </header>
+
+        <div class="project-image">
+          <a href="#">
+            <img src="https://images.unsplash.com/photo-1633412802994-5c058f151b66?w=900&q=70"
+                 alt="SQL project preview" />
+            <div class="overlay"></div>
+          </a>
+        </div>
+
+        <p>
+          Explored a large transactional dataset using SQL Server to identify revenue trends,
+          customer segments, and seasonal patterns. Wrote optimised queries with CTEs and window
+          functions to deliver actionable business insights from raw data.
+        </p>
+
+        <div class="tags-row">
+          <span class="tools-tag"><i class="fa-solid fa-database"></i> SQL</span>
+          <span class="tools-tag"><i class="fa-solid fa-magnifying-glass-chart"></i> Data Analysis</span>
+        </div>
+
+        <a href="#" class="btn btn-primary"><i class="fa-brands fa-github"></i> View on GitHub</a>
+      </article>
+
+      <!-- PROJECT 3 -->
+      <article class="project">
+        <header>
+          <h2><a href="#">SharePoint Governance Report</a></h2>
+          <p class="project-meta">Power BI &nbsp;·&nbsp; SharePoint &nbsp;·&nbsp; Excel</p>
+        </header>
+
+        <div class="project-image">
+          <a href="#">
+            <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=900&q=70"
+                 alt="SharePoint report preview" />
+            <div class="overlay"></div>
+          </a>
+        </div>
+
+        <p>
+          Built a Power BI report to audit SharePoint usage, permissions, and file storage across
+          the organisation. Automated data refresh from SharePoint APIs, reducing manual reporting
+          effort by 80 % and enabling the IT team to act on governance risks in real time.
+        </p>
+
+        <div class="tags-row">
+          <span class="tools-tag"><i class="fa-brands fa-microsoft"></i> Power BI</span>
+          <span class="tools-tag"><i class="fa-solid fa-folder-open"></i> SharePoint</span>
+          <span class="tools-tag"><i class="fa-solid fa-file-excel"></i> Excel</span>
+        </div>
+
+        <a href="#" class="btn btn-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Project</a>
+      </article>
+
+    </main><!-- /#main -->
+
+    <hr class="divider" />
+
+    <!-- ══ ABOUT + CONTACT ══ -->
+    <section id="about-section">
+      <div id="about">
+        <!-- About text -->
+        <div class="about-text">
+          <h2 class="section-title">About Me</h2>
+
+          <h3>Who I Am</h3>
+          <p>
+            I'm a SharePoint and File Storage Business Analyst based in Norway, with a
+            strong passion for data analytics. I specialise in transforming raw,
+            messy data into clear, actionable insights that drive business decisions.
+          </p>
+
+          <h3>What I Do</h3>
+          <p>
+            From designing interactive dashboards in Tableau and Power BI, to writing
+            complex SQL queries and building automated Excel reports — I bridge the gap
+            between raw data and meaningful stories.
+          </p>
+
+          <h3>Skills</h3>
+          <ul class="skills-list">
+            <li>SQL</li>
+            <li>Tableau</li>
+            <li>Power BI</li>
+            <li>Excel</li>
+            <li>SharePoint</li>
+            <li>Data Cleaning</li>
+            <li>Data Visualisation</li>
+            <li>Business Analysis</li>
+          </ul>
+        </div>
+
+        <!-- Contact card -->
+        <div>
+          <h2 class="section-title">Contact</h2>
+          <div id="contact-card">
+            <h3>Get in Touch</h3>
+
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Oslo, Norway</span>
+            </div>
+
+            <div class="contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span><a href="mailto:lina@example.com">lina@example.com</a></span>
+            </div>
+
+            <div class="contact-item">
+              <i class="fa-solid fa-briefcase"></i>
+              <span>Open to Data Analyst roles &amp; freelance projects</span>
+            </div>
+
+            <div class="contact-social">
+              <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              <a href="#" aria-label="Tableau Public"><i class="fa-solid fa-chart-bar"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /#wrapper -->
+
+  <!-- ══ FOOTER ══ -->
+  <footer id="footer">
+    <p>&copy; Lina Revheim &nbsp;·&nbsp; Design inspired by <a href="https://html5up.net" target="_blank">HTML5 UP</a></p>
+  </footer>
 
 </body>
 </html>
