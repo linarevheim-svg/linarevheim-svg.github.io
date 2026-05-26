@@ -9,22 +9,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    /* ── RESET & BASE ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:          #1e1e24;
-      --bg2:         #252530;
-      --panel:       #2c2c38;
-      --accent:      #4a90d9;
-      --accent2:     #2f72b8;
-      --text:        #c8c8d4;
-      --text-light:  #9090a8;
-      --white:       #ffffff;
-      --border:      rgba(255,255,255,0.08);
-      --radius:      6px;
-      --serif:       'Merriweather', Georgia, serif;
-      --sans:        'Source Sans 3', sans-serif;
+      --bg:         #1e1e24;
+      --bg2:        #252530;
+      --panel:      #2c2c38;
+      --accent:     #4a90d9;
+      --accent2:    #2f72b8;
+      --text:       #c8c8d4;
+      --text-light: #9090a8;
+      --white:      #ffffff;
+      --border:     rgba(255,255,255,0.08);
+      --radius:     6px;
+      --serif:      'Merriweather', Georgia, serif;
+      --sans:       'Source Sans 3', sans-serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -39,10 +38,8 @@
 
     a { color: var(--accent); text-decoration: none; transition: color .2s; }
     a:hover { color: var(--white); }
-
     img { display: block; width: 100%; border-radius: var(--radius); }
 
-    /* ── BACKGROUND TEXTURE ── */
     body::before {
       content: '';
       position: fixed;
@@ -54,7 +51,6 @@
       z-index: 0;
     }
 
-    /* ── HEADER / HERO ── */
     #header {
       position: relative;
       display: flex;
@@ -101,7 +97,6 @@
 
     .tagline strong { color: var(--accent); font-weight: 600; }
 
-    /* social icons row */
     .social-row {
       display: flex;
       gap: 1rem;
@@ -130,7 +125,6 @@
       background: rgba(74,144,217,.07);
     }
 
-    /* scroll cue */
     .scroll-cue {
       position: absolute;
       bottom: 2.5rem;
@@ -153,7 +147,6 @@
       50%       { transform: translateX(-50%) translateY(6px); opacity: 1; }
     }
 
-    /* ── NAV ── */
     #nav {
       position: sticky;
       top: 0;
@@ -174,11 +167,7 @@
       color: var(--white);
     }
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
 
     .nav-links a {
       font-size: .85rem;
@@ -190,7 +179,6 @@
 
     .nav-links a:hover { color: var(--accent); }
 
-    /* ── WRAPPER ── */
     #wrapper {
       max-width: 960px;
       margin: 0 auto;
@@ -199,7 +187,6 @@
       z-index: 1;
     }
 
-    /* ── SECTION HEADINGS ── */
     .section-title {
       font-family: var(--serif);
       font-size: clamp(1.6rem, 3vw, 2.1rem);
@@ -220,20 +207,14 @@
       border-radius: 99px;
     }
 
-    /* ── ARTICLE / PROJECT CARD ── */
     article.project {
       margin-bottom: 4rem;
       padding-bottom: 4rem;
       border-bottom: 1px solid var(--border);
     }
 
-    article.project:last-of-type {
-      border-bottom: none;
-    }
-
-    article.project header {
-      margin-bottom: 1.2rem;
-    }
+    article.project:last-of-type { border-bottom: none; }
+    article.project header { margin-bottom: 1.2rem; }
 
     article.project h2 {
       font-family: var(--serif);
@@ -280,10 +261,7 @@
       pointer-events: none;
     }
 
-    article.project p {
-      color: var(--text);
-      margin-bottom: 1rem;
-    }
+    article.project p { color: var(--text); margin-bottom: 1rem; }
 
     .tools-tag {
       display: inline-flex;
@@ -341,7 +319,6 @@
       background: rgba(74,144,217,.06);
     }
 
-    /* ── ABOUT ── */
     #about {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -382,7 +359,6 @@
       border-radius: var(--radius);
     }
 
-    /* ── CONTACT SIDEBAR CARD ── */
     #contact-card {
       background: var(--panel);
       border: 1px solid var(--border);
@@ -414,20 +390,11 @@
       flex-shrink: 0;
     }
 
-    .contact-item span {
-      font-size: .9rem;
-      color: var(--text);
-      line-height: 1.5;
-    }
-
+    .contact-item span { font-size: .9rem; color: var(--text); line-height: 1.5; }
     .contact-item a { color: var(--text); }
     .contact-item a:hover { color: var(--accent); }
 
-    .contact-social {
-      display: flex;
-      gap: .75rem;
-      margin-top: 1.4rem;
-    }
+    .contact-social { display: flex; gap: .75rem; margin-top: 1.4rem; }
 
     .contact-social a {
       display: flex;
@@ -447,7 +414,6 @@
       background: rgba(74,144,217,.08);
     }
 
-    /* ── FOOTER ── */
     #footer {
       text-align: center;
       padding: 2.5rem 1rem;
@@ -458,14 +424,8 @@
       margin-top: 2rem;
     }
 
-    /* ── DIVIDER ── */
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 3rem 0;
-    }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 680px) {
       #nav { padding: .75rem 1.2rem; }
       .nav-links { gap: 1.1rem; }
@@ -476,11 +436,10 @@
 </head>
 <body>
 
-<!-- ══ HERO ══ -->
 <header id="header">
-  <p class="tagline">Business & Data Analyst Portfolio</p>
+  <p class="tagline">Business &amp; Data Analyst Portfolio</p>
   <h1 class="logo">Lina Revheim</h1>
-  <p class="tagline">Skilled in <strong>SQL</strong> &nbsp;·&nbsp; <strong>Tableau</strong> &nbsp;·&nbsp; <strong>Excel</strong> &nbsp;·&nbsp; <strong>Power BI</strong></p>
+  <p class="tagline">Skilled in <strong>SQL</strong> &nbsp;&middot;&nbsp; <strong>Tableau</strong> &nbsp;&middot;&nbsp; <strong>Excel</strong> &nbsp;&middot;&nbsp; <strong>Power BI</strong></p>
   <div class="social-row">
     <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
     <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i> GitHub</a>
@@ -492,178 +451,129 @@
   </div>
 </header>
 
-  <!-- ══ NAV ══ -->
-  <nav id="nav">
-    <span class="nav-brand">Lina Revheim</span>
-    <ul class="nav-links">
-      <li><a href="#main">Projects</a></li>
-      <li><a href="#about-section">About</a></li>
-      <li><a href="#about-section">Contact</a></li>
-    </ul>
-  </nav>
+<nav id="nav">
+  <span class="nav-brand">Lina Revheim</span>
+  <ul class="nav-links">
+    <li><a href="#main">Projects</a></li>
+    <li><a href="#about-section">About</a></li>
+    <li><a href="#about-section">Contact</a></li>
+  </ul>
+</nav>
 
-  <!-- ══ MAIN CONTENT ══ -->
-  <div id="wrapper">
-    <main id="main">
+<div id="wrapper">
+  <main id="main">
 
-      <h2 class="section-title">Projects</h2>
+    <h2 class="section-title">Projects</h2>
 
-      <!-- PROJECT 1 -->
-      <article class="project">
-        <header>
-          <h2><a href="#">Sales Performance Dashboard</a></h2>
-          <p class="project-meta">Tableau &nbsp;·&nbsp; Business Intelligence</p>
-        </header>
+    <article class="project">
+      <header>
+        <h2><a href="#">Sales Performance Dashboard</a></h2>
+        <p class="project-meta">Tableau &nbsp;&middot;&nbsp; Business Intelligence</p>
+      </header>
+      <div class="project-image">
+        <a href="#">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=70" alt="Sales Dashboard preview" />
+          <div class="overlay"></div>
+        </a>
+      </div>
+      <p>An interactive Tableau dashboard analysing sales performance across regions and product categories. Enables stakeholders to filter by time period, geography, and segment &mdash; surfacing trends that drove a 12&thinsp;% uplift in quarterly decision-making speed.</p>
+      <div class="tags-row">
+        <span class="tools-tag"><i class="fa-solid fa-chart-bar"></i> Tableau</span>
+        <span class="tools-tag"><i class="fa-solid fa-file-excel"></i> Excel</span>
+      </div>
+      <a href="#" class="btn btn-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Dashboard</a>
+    </article>
 
-        <div class="project-image">
-          <a href="#">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=70"
-                 alt="Sales Dashboard preview" />
-            <div class="overlay"></div>
-          </a>
-        </div>
+    <article class="project">
+      <header>
+        <h2><a href="#">SQL Data Exploration</a></h2>
+        <p class="project-meta">SQL Server &nbsp;&middot;&nbsp; Data Analysis</p>
+      </header>
+      <div class="project-image">
+        <a href="#">
+          <img src="https://images.unsplash.com/photo-1633412802994-5c058f151b66?w=900&q=70" alt="SQL project preview" />
+          <div class="overlay"></div>
+        </a>
+      </div>
+      <p>Explored a large transactional dataset using SQL Server to identify revenue trends, customer segments, and seasonal patterns. Wrote optimised queries with CTEs and window functions to deliver actionable business insights from raw data.</p>
+      <div class="tags-row">
+        <span class="tools-tag"><i class="fa-solid fa-database"></i> SQL</span>
+        <span class="tools-tag"><i class="fa-solid fa-magnifying-glass-chart"></i> Data Analysis</span>
+      </div>
+      <a href="#" class="btn btn-primary"><i class="fa-brands fa-github"></i> View on GitHub</a>
+    </article>
 
-        <p>
-          An interactive Tableau dashboard analysing sales performance across regions and product
-          categories. Enables stakeholders to filter by time period, geography, and segment —
-          surfacing trends that drove a 12 % uplift in quarterly decision-making speed.
-        </p>
+    <article class="project">
+      <header>
+        <h2><a href="#">SharePoint Governance Report</a></h2>
+        <p class="project-meta">Power BI &nbsp;&middot;&nbsp; SharePoint &nbsp;&middot;&nbsp; Excel</p>
+      </header>
+      <div class="project-image">
+        <a href="#">
+          <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=900&q=70" alt="SharePoint report preview" />
+          <div class="overlay"></div>
+        </a>
+      </div>
+      <p>Built a Power BI report to audit SharePoint usage, permissions, and file storage across the organisation. Automated data refresh from SharePoint APIs, reducing manual reporting effort by 80&thinsp;% and enabling the IT team to act on governance risks in real time.</p>
+      <div class="tags-row">
+        <span class="tools-tag"><i class="fa-brands fa-microsoft"></i> Power BI</span>
+        <span class="tools-tag"><i class="fa-solid fa-folder-open"></i> SharePoint</span>
+        <span class="tools-tag"><i class="fa-solid fa-file-excel"></i> Excel</span>
+      </div>
+      <a href="#" class="btn btn-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Project</a>
+    </article>
 
-        <div class="tags-row">
-          <span class="tools-tag"><i class="fa-solid fa-chart-bar"></i> Tableau</span>
-          <span class="tools-tag"><i class="fa-solid fa-file-excel"></i> Excel</span>
-        </div>
+  </main>
 
-        <a href="#" class="btn btn-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Dashboard</a>
-      </article>
+  <hr class="divider" />
 
-      <!-- PROJECT 2 -->
-      <article class="project">
-        <header>
-          <h2><a href="#">SQL Data Exploration</a></h2>
-          <p class="project-meta">SQL Server &nbsp;·&nbsp; Data Analysis</p>
-        </header>
+  <section id="about-section">
+    <div id="about">
+      <div class="about-text">
+        <h2 class="section-title">About Me</h2>
+        <h3>Who I Am</h3>
+        <p>I&rsquo;m a Business &amp; Data Analyst based in Cambridge, UK with a strong passion for data analytics. I specialise in transforming raw, messy data into clear, actionable insights that drive business decisions.</p>
+        <h3>What I Do</h3>
+        <p>From designing interactive dashboards in Tableau and Power BI, to understanding the business drivers &mdash; I bridge the gap between raw data and meaningful stories.</p>
+        <h3>Skills</h3>
+        <ul class="skills-list">
+          <li>Tableau</li>
+          <li>Power BI</li>
+          <li>Excel</li>
+          <li>Data Visualisation</li>
+          <li>Business &amp; Data Analysis</li>
+          <li>Data Cleaning</li>
+          <li>Process Modelling</li>
+        </ul>
+      </div>
 
-        <div class="project-image">
-          <a href="#">
-            <img src="https://images.unsplash.com/photo-1633412802994-5c058f151b66?w=900&q=70"
-                 alt="SQL project preview" />
-            <div class="overlay"></div>
-          </a>
-        </div>
-
-        <p>
-          Explored a large transactional dataset using SQL Server to identify revenue trends,
-          customer segments, and seasonal patterns. Wrote optimised queries with CTEs and window
-          functions to deliver actionable business insights from raw data.
-        </p>
-
-        <div class="tags-row">
-          <span class="tools-tag"><i class="fa-solid fa-database"></i> SQL</span>
-          <span class="tools-tag"><i class="fa-solid fa-magnifying-glass-chart"></i> Data Analysis</span>
-        </div>
-
-        <a href="#" class="btn btn-primary"><i class="fa-brands fa-github"></i> View on GitHub</a>
-      </article>
-
-      <!-- PROJECT 3 -->
-      <article class="project">
-        <header>
-          <h2><a href="#">SharePoint Governance Report</a></h2>
-          <p class="project-meta">Power BI &nbsp;·&nbsp; SharePoint &nbsp;·&nbsp; Excel</p>
-        </header>
-
-        <div class="project-image">
-          <a href="#">
-            <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=900&q=70"
-                 alt="SharePoint report preview" />
-            <div class="overlay"></div>
-          </a>
-        </div>
-
-        <p>
-          Built a Power BI report to audit SharePoint usage, permissions, and file storage across
-          the organisation. Automated data refresh from SharePoint APIs, reducing manual reporting
-          effort by 80 % and enabling the IT team to act on governance risks in real time.
-        </p>
-
-        <div class="tags-row">
-          <span class="tools-tag"><i class="fa-brands fa-microsoft"></i> Power BI</span>
-          <span class="tools-tag"><i class="fa-solid fa-folder-open"></i> SharePoint</span>
-          <span class="tools-tag"><i class="fa-solid fa-file-excel"></i> Excel</span>
-        </div>
-
-        <a href="#" class="btn btn-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Project</a>
-      </article>
-
-    </main><!-- /#main -->
-
-    <hr class="divider" />
-
-    <!-- ══ ABOUT + CONTACT ══ -->
-    <section id="about-section">
-      <div id="about">
-        <!-- About text -->
-        <div class="about-text">
-          <h2 class="section-title">About Me</h2>
-
-          <h3>Who I Am</h3>
-          <p>
-            I'm a Business & Data Analyst based in Cambridge, UK with a
-            strong passion for data analytics. I specialise in transforming raw,
-            messy data into clear, actionable insights that drive business decisions.
-          </p>
-
-          <h3>What I Do</h3>
-          <p>
-            From designing interactive dashboards in Tableau and Power BI, to understanding the business drivers — I bridge the gap
-            between raw data and meaningful stories.
-          </p>
-
-          <h3>Skills</h3>
-          <ul class="skills-list">
-            <li>Tableau</li>
-            <li>Power BI</li>
-            <li>Excel</li>
-            <li>Data Visualisation</li>
-            <li>Business & Data Analysis</li>
-            <li>Data Cleaning</li>
-            <li>Process Modelling</li>
-          </ul>
-        </div>
-
-        <!-- Contact card -->
-        <div>
-          <h2 class="section-title">Contact</h2>
-          <div id="contact-card">
-            <h3>Get in Touch</h3>
-
-            <div class="contact-item">
-              <i class="fa-solid fa-location-dot"></i>
-              <span>Cambridge, United Kingdom</span>
-            </div>
-
-            <div class="contact-item">
-              <i class="fa-solid fa-envelope"></i>
-              <span><a href="mailto:lina@example.com">lina.revheim@outlook.com</a></span>
-            </div>
-
-            <div class="contact-social">
-              <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-              <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-              <a href="#" aria-label="Tableau Public"><i class="fa-solid fa-chart-bar"></i></a>
-            </div>
+      <div>
+        <h2 class="section-title">Contact</h2>
+        <div id="contact-card">
+          <h3>Get in Touch</h3>
+          <div class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Cambridge, United Kingdom</span>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <span><a href="mailto:lina.revheim@outlook.com">lina.revheim@outlook.com</a></span>
+          </div>
+          <div class="contact-social">
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" aria-label="Tableau Public"><i class="fa-solid fa-chart-bar"></i></a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </div><!-- /#wrapper -->
+</div>
 
-  <!-- ══ FOOTER ══ -->
-  <footer id="footer">
-    <p>&copy; Lina Revheim &nbsp;·&nbsp; Design inspired by <a href="https://html5up.net" target="_blank">HTML5 UP</a></p>
-  </footer>
+<footer id="footer">
+  <p>&copy; Lina Revheim &nbsp;&middot;&nbsp; Design inspired by <a href="https://html5up.net" target="_blank">HTML5 UP</a></p>
+</footer>
 
 </body>
 </html>
