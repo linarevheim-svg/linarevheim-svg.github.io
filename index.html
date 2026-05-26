@@ -1,52 +1,122 @@
-<div style="background: #333; color: white; padding: 80px 20px; text-align: center;">
-  <h1 style="font-size: 40px;">Lina Revheim</h1>
-  <p style="font-size: 18px;">
-    Data Analyst skilled in SQL, Tableau, Excel
-  </p>
-</div>
-``
 <!DOCTYPE html>
 <html>
 <head>
   <title>Lina Revheim Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #2c2c2c, #4b4b4b);
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: 50px;
+      margin: 0;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .project img {
+      width: 100%;
+      margin: 10px 0;
+      border-radius: 5px;
+    }
+
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    hr {
+      margin: 40px 0;
+    }
+  </style>
 </head>
 
-<body style="font-family: Arial; max-width: 900px; margin: auto; padding: 20px;">
+<body>
 
-  <h1>Lina Revheim</h1>
-  <p>Business & Data Analyst</p>
+  <!-- HERO SECTION (this is what you're missing) -->
+  <div class="hero">
+    <h1>LINA REVHEIM</h1>
+    <p>Data Analyst skilled in SQL, Tableau, Excel</p>
+  </div>
 
-  <h2>Main Projects</h2>
+  <!-- MAIN CONTENT -->
+  <div class="container">
 
-  <h3>Sales Dashboard</h3>
-  <img src="https://via.placeholder.com/600x300">
+    <h2>Projects</h2>
 
-  <p>
-  <a href="#">View Dashboard</a>
-  </p>
+    <!-- PROJECT 1 -->
+    <div class="project">
+      <h3>Sales Dashboard</h3>
 
-<p>
-Interactive Tableau dashboard analysing sales performance.
-</p>
+      <img src="https://via.placeholder.com/800x400" alt="Dashboard preview">
 
-<hr>
-``
+      <p>
+        <a href="#">View Dashboard</a>
+      </p>
 
-  <h3>SQL Data Analysis</h3>
-  <p>
-    <a href="#">View GitHub Project</a>
-  </p>
-  <p>Exploration of dataset using SQL queries to uncover trends.</p>
+      <p>
+        Interactive Tableau dashboard analysing sales performance across regions and categories.
+      </p>
 
-  <h2>About Me</h2>
-  <p>
-    I specialise in data analysis, visualisation, and business insights using SQL, Tableau, Power BI and Excel.
-  </p>
+      <p><strong>Tools:</strong> Tableau, Excel</p>
+    </div>
 
-  <h2>Contact</h2>
-  <p>
-    GitHub | LinkedIn
-  </p>
+    <hr>
+
+    <!-- PROJECT 2 -->
+    <div class="project">
+      <h3>SQL Data Analysis</h3>
+
+      <p>
+        <a href="#">View GitHub Project</a>
+      </p>
+
+      <p>
+        Exploration of dataset using SQL queries to identify trends and business insights.
+      </p>
+
+      <p><strong>Tools:</strong> SQL</p>
+    </div>
+
+    <hr>
+
+    <!-- ABOUT -->
+    <h2>About Me</h2>
+    <p>
+      I am a SharePoint and File Storage Business Analyst with a strong interest in data analytics. 
+      I specialise in turning data into clear insights using SQL, Tableau, and Excel.
+    </p>
+
+    <!-- CONTACT -->
+    <h2>Contact</h2>
+    <p>
+      <a href="#">GitHub</a> | <a href="#">LinkedIn</a>
+    </p>
+
+  </div>
 
 </body>
 </html>
+``
