@@ -2,45 +2,61 @@
 <html>
 <head>
   <title>Lina Revheim Portfolio</title>
+
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
       line-height: 1.6;
     }
 
+    /* HERO SECTION */
     .hero {
       background: linear-gradient(to right, #2c2c2c, #4b4b4b);
       color: white;
       text-align: center;
-      padding: 100px 20px;
+      padding: 120px 20px;
+      width: 100%;
     }
 
     .hero h1 {
-      font-size: 50px;
+      font-size: 48px;
       margin: 0;
+      letter-spacing: 2px;
     }
 
     .hero p {
       font-size: 18px;
       margin-top: 20px;
+      color: #ddd;
     }
 
+    /* MAIN CONTENT */
     .container {
       max-width: 900px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 60px 20px;
+    }
+
+    h2 {
+      margin-top: 40px;
     }
 
     .project img {
       width: 100%;
-      margin: 10px 0;
+      margin: 15px 0;
       border-radius: 5px;
+    }
+
+    .project {
+      margin-bottom: 40px;
     }
 
     a {
       color: #0066cc;
       text-decoration: none;
+      font-weight: bold;
     }
 
     a:hover {
@@ -49,19 +65,21 @@
 
     hr {
       margin: 40px 0;
+      border: 0;
+      border-top: 1px solid #ddd;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HERO SECTION (this is what you're missing) -->
+  <!-- HERO -->
   <div class="hero">
     <h1>LINA REVHEIM</h1>
     <p>Data Analyst skilled in SQL, Tableau, Excel</p>
   </div>
 
-  <!-- MAIN CONTENT -->
+  <!-- CONTENT -->
   <div class="container">
 
     <h2>Projects</h2>
@@ -94,7 +112,7 @@
       </p>
 
       <p>
-        Exploration of dataset using SQL queries to identify trends and business insights.
+        Explored dataset using SQL queries to identify trends and key business insights.
       </p>
 
       <p><strong>Tools:</strong> SQL</p>
@@ -105,8 +123,8 @@
     <!-- ABOUT -->
     <h2>About Me</h2>
     <p>
-      I am a SharePoint and File Storage Business Analyst with a strong interest in data analytics. 
-      I specialise in turning data into clear insights using SQL, Tableau, and Excel.
+      I am a SharePoint and File Storage Business Analyst with a strong interest in data analytics.
+      I specialise in transforming data into actionable insights using SQL, Tableau, and Excel.
     </p>
 
     <!-- CONTACT -->
@@ -119,4 +137,3 @@
 
 </body>
 </html>
-``
