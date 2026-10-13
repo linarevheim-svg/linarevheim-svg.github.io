@@ -2,31 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <title>Lina Revheim | Business & Data Analyst Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lina Revheim | Business &amp; Data Analyst Portfolio</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;family=Source+Sans+3:wght@300;400;600;700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:         #1e1e24;
-      --bg2:        #252530;
-      --panel:      #2c2c38;
-      --accent:     #4a90d9;
-      --accent2:    #2f72b8;
-      --text:       #c8c8d4;
-      --text-light: #9090a8;
-      --white:      #ffffff;
-      --border:     rgba(255,255,255,0.08);
-      --radius:     6px;
-      --serif:      'Merriweather', Georgia, serif;
-      --sans:       'Source Sans 3', sans-serif;
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    html { scroll-behavior: smooth; }
+    :root {
+      --bg: #1e1e24;
+      --panel: #2c2c38;
+      --accent: #4a90d9;
+      --text: #c8c8d4;
+      --text-light: #9090a8;
+      --white: #ffffff;
+      --border: rgba(255, 255, 255, .08);
+      --radius: 6px;
+      --serif: 'Merriweather', Georgia, serif;
+      --sans: 'Source Sans 3', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       background: var(--bg);
@@ -36,20 +44,54 @@
       line-height: 1.75;
     }
 
-    a { color: var(--accent); text-decoration: none; transition: color .2s; }
-    a:hover { color: var(--white); }
-    img { display: block; width: 100%; border-radius: var(--radius); }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    a:hover {
+      color: var(--white);
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 5px;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+    }
+
+    #main,
+    #about-section,
+    #contact {
+      scroll-margin-top: 8rem;
+    }
 
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background-image:
-        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(74,144,217,.07) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 80% at 80% 90%, rgba(100,80,180,.06) 0%, transparent 60%);
       pointer-events: none;
       z-index: 0;
+      background-image:
+        radial-gradient(
+          ellipse 80% 60% at 20% 10%,
+          rgba(74, 144, 217, .07) 0%,
+          transparent 60%
+        ),
+        radial-gradient(
+          ellipse 60% 80% at 80% 90%,
+          rgba(100, 80, 180, .06) 0%,
+          transparent 60%
+        );
     }
+
+    /* Hero */
 
     #header {
       position: relative;
@@ -58,11 +100,17 @@
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-      padding: 6rem 2rem 5rem;
+      min-height: 100svh;
+      padding: 6rem 2rem 7rem;
       text-align: center;
       background:
-        linear-gradient(160deg, rgba(30,30,36,.96) 0%, rgba(18,18,24,1) 100%),
-        url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=60') center/cover no-repeat;
+        linear-gradient(
+          160deg,
+          rgba(30, 30, 36, .96) 0%,
+          rgba(18, 18, 24, 1) 100%
+        ),
+        url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=60')
+        center / cover no-repeat;
       background-blend-mode: multiply;
       border-bottom: 1px solid var(--border);
     }
@@ -70,9 +118,16 @@
     #header::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 0; right: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       height: 3px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--accent),
+        transparent
+      );
     }
 
     .logo {
@@ -80,32 +135,35 @@
       font-size: clamp(3rem, 7vw, 5.5rem);
       font-weight: 900;
       color: var(--white);
-      letter-spacing: 0.04em;
+      letter-spacing: .04em;
       line-height: 1.1;
       margin-bottom: 1rem;
     }
 
     .tagline {
-      font-family: var(--sans);
       font-size: clamp(.95rem, 2vw, 1.15rem);
       font-weight: 300;
       color: var(--text-light);
-      letter-spacing: 0.12em;
+      letter-spacing: .12em;
       text-transform: uppercase;
       margin-bottom: 2.5rem;
     }
 
-    .tagline strong { color: var(--accent); font-weight: 600; }
+    .tagline strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
 
     .social-row {
       display: flex;
+      flex-wrap: wrap;
       gap: 1rem;
       justify-content: center;
       margin-bottom: 3rem;
     }
 
     .social-row a {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: .45rem;
       padding: .55rem 1.2rem;
@@ -116,13 +174,12 @@
       letter-spacing: .05em;
       text-transform: uppercase;
       color: var(--text-light);
-      transition: border-color .2s, color .2s, background .2s;
     }
 
     .social-row a:hover {
       border-color: var(--accent);
       color: var(--accent);
-      background: rgba(74,144,217,.07);
+      background: rgba(74, 144, 217, .07);
     }
 
     .scroll-cue {
@@ -140,23 +197,37 @@
       text-transform: uppercase;
       animation: bob 2s ease-in-out infinite;
     }
-    .scroll-cue i { font-size: 1.1rem; }
+
+    .scroll-cue i {
+      font-size: 1.1rem;
+    }
 
     @keyframes bob {
-      0%, 100% { transform: translateX(-50%) translateY(0); opacity: .6; }
-      50%       { transform: translateX(-50%) translateY(6px); opacity: 1; }
+      0%, 100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: .6;
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(6px);
+        opacity: 1;
+      }
     }
+
+    /* Navigation */
 
     #nav {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(18,18,24,.95);
+      background: rgba(18, 18, 24, .95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
+      gap: 1rem;
       padding: .9rem 2.5rem;
     }
 
@@ -167,7 +238,13 @@
       color: var(--white);
     }
 
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+    }
 
     .nav-links a {
       font-size: .85rem;
@@ -177,7 +254,11 @@
       color: var(--text-light);
     }
 
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Main layout */
 
     #wrapper {
       max-width: 960px;
@@ -192,6 +273,7 @@
       font-size: clamp(1.6rem, 3vw, 2.1rem);
       font-weight: 700;
       color: var(--white);
+      text-align: center;
       margin-bottom: 2.5rem;
       padding-bottom: .8rem;
       border-bottom: 1px solid var(--border);
@@ -201,20 +283,33 @@
     .section-title::after {
       content: '';
       position: absolute;
-      bottom: -1px; left: 0;
-      width: 60px; height: 3px;
+      bottom: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
       background: var(--accent);
       border-radius: 99px;
     }
+
+    /* Projects */
 
     article.project {
       margin-bottom: 4rem;
       padding-bottom: 4rem;
       border-bottom: 1px solid var(--border);
+      text-align: center;
     }
 
-    article.project:last-of-type { border-bottom: none; }
-    article.project header { margin-bottom: 1.2rem; }
+    article.project:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    article.project header {
+      margin-bottom: 1.2rem;
+    }
 
     article.project h2 {
       font-family: var(--serif);
@@ -224,10 +319,20 @@
       margin-bottom: .3rem;
     }
 
-    article.project h2 a { color: inherit; }
-    article.project h2 a:hover { color: var(--accent); }
+    article.project h2 a {
+      color: inherit;
+    }
 
-    .project-meta {
+    article.project h2 a:hover {
+      color: var(--accent);
+    }
+
+    article.project p {
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    article.project .project-meta {
       font-size: .8rem;
       letter-spacing: .1em;
       text-transform: uppercase;
@@ -237,13 +342,18 @@
     .project-image {
       position: relative;
       overflow: hidden;
+      width: 100%;
+      margin: 1.4rem auto;
       border-radius: var(--radius);
-      margin: 1.4rem 0;
       border: 1px solid var(--border);
     }
 
+    .project-image > a {
+      display: block;
+      position: relative;
+    }
+
     .project-image img {
-      border-radius: var(--radius);
       transition: transform .45s ease, filter .45s ease;
       filter: brightness(.88) saturate(.9);
     }
@@ -256,19 +366,29 @@
     .project-image .overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(18,18,24,.7) 0%, transparent 50%);
       border-radius: var(--radius);
       pointer-events: none;
+      background: linear-gradient(
+        to top,
+        rgba(18, 18, 24, .7) 0%,
+        transparent 50%
+      );
     }
 
-    article.project p { color: var(--text); margin-bottom: 1rem; }
+    .tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .5rem;
+      margin-bottom: 1.2rem;
+    }
 
     .tools-tag {
       display: inline-flex;
       align-items: center;
       gap: .4rem;
-      background: rgba(74,144,217,.1);
-      border: 1px solid rgba(74,144,217,.25);
+      background: rgba(74, 144, 217, .1);
+      border: 1px solid rgba(74, 144, 217, .25);
       color: var(--accent);
       font-size: .78rem;
       font-weight: 600;
@@ -276,15 +396,14 @@
       text-transform: uppercase;
       padding: .3rem .85rem;
       border-radius: 99px;
-      margin-right: .5rem;
-      margin-bottom: .5rem;
     }
 
-    .tags-row { margin-bottom: 1.2rem; }
+    /* Buttons */
 
     .btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: .5rem;
       padding: .65rem 1.6rem;
       border-radius: 99px;
@@ -292,38 +411,34 @@
       font-weight: 700;
       letter-spacing: .06em;
       text-transform: uppercase;
-      transition: background .2s, color .2s, box-shadow .2s, transform .15s;
+      transition:
+        background .2s,
+        color .2s,
+        box-shadow .2s,
+        transform .15s;
     }
 
     .btn-primary {
       background: var(--accent);
       color: #0a1628;
-      box-shadow: 0 4px 20px rgba(74,144,217,.25);
+      box-shadow: 0 4px 20px rgba(74, 144, 217, .25);
     }
 
     .btn-primary:hover {
       background: var(--white);
       color: #0a1628;
-      box-shadow: 0 6px 28px rgba(74,144,217,.35);
+      box-shadow: 0 6px 28px rgba(74, 144, 217, .35);
       transform: translateY(-1px);
     }
 
-    .btn-ghost {
-      border: 1px solid var(--border);
-      color: var(--text-light);
-    }
-
-    .btn-ghost:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: rgba(74,144,217,.06);
-    }
+    /* About and contact */
 
     #about {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 3rem;
       margin-bottom: 4rem;
+      text-align: center;
     }
 
     #about .about-text h3 {
@@ -343,6 +458,7 @@
       list-style: none;
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: .5rem;
       margin-top: .8rem;
     }
@@ -377,8 +493,9 @@
 
     .contact-item {
       display: flex;
+      justify-content: center;
       align-items: flex-start;
-      gap: 1rem;
+      gap: .75rem;
       margin-bottom: 1.2rem;
     }
 
@@ -390,31 +507,56 @@
       flex-shrink: 0;
     }
 
-    .contact-item span { font-size: .9rem; color: var(--text); line-height: 1.5; }
-    .contact-item a { color: var(--text); }
-    .contact-item a:hover { color: var(--accent); }
+    .contact-item span {
+      min-width: 0;
+      font-size: .9rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
 
-    .contact-social { display: flex; gap: .75rem; margin-top: 1.4rem; }
+    .contact-item a {
+      color: var(--text);
+      overflow-wrap: anywhere;
+    }
+
+    .contact-item a:hover {
+      color: var(--accent);
+    }
+
+    .contact-social {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .75rem;
+      margin-top: 1.4rem;
+    }
 
     .contact-social a {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 38px; height: 38px;
+      width: 38px;
+      height: 38px;
       border: 1px solid var(--border);
       border-radius: 50%;
       color: var(--text-light);
       font-size: .95rem;
-      transition: border-color .2s, color .2s, background .2s;
     }
 
     .contact-social a:hover {
       border-color: var(--accent);
       color: var(--accent);
-      background: rgba(74,144,217,.08);
+      background: rgba(74, 144, 217, .08);
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 3rem 0;
     }
 
     #footer {
+      position: relative;
       text-align: center;
       padding: 2.5rem 1rem;
       border-top: 1px solid var(--border);
@@ -424,154 +566,429 @@
       margin-top: 2rem;
     }
 
-    .divider { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
+    /* Mobile */
 
     @media (max-width: 680px) {
-      #nav { padding: .75rem 1.2rem; }
-      .nav-links { gap: 1.1rem; }
-      #about { grid-template-columns: 1fr; }
-      .logo { font-size: 2.8rem; }
+      #nav {
+        flex-direction: column;
+        padding: .75rem 1.2rem;
+        gap: .5rem;
+      }
+
+      .nav-links {
+        gap: 1.1rem;
+      }
+
+      #wrapper {
+        padding: 3rem 1.25rem 1rem;
+      }
+
+      #about {
+        grid-template-columns: 1fr;
+      }
+
+      #contact-card {
+        padding: 1.5rem;
+      }
+
+      .logo {
+        font-size: 2.8rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<header id="header">
-  <p class="tagline">Business &amp; Data Analyst Portfolio</p>
-  <h1 class="logo">Lina Revheim</h1>
-  <p class="tagline">Skilled in <strong>Tableau</strong> &nbsp;&middot;&nbsp; <strong>Power BI</strong> &nbsp;&middot;&nbsp; <strong>Excel</strong></p>
- <div class="social-row">
-  <a href="https://www.linkedin.com/in/lina-revheim" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-    <i class="fa-brands fa-linkedin-in"></i> LinkedIn
-  </a>
+  <header id="header">
+    <p class="tagline">Business &amp; Data Analyst Portfolio</p>
+    <h1 class="logo">Lina Revheim</h1>
 
-  <a href="https://github.com/linarevheim-svg" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-    <i class="fa-brands fa-github"></i> GitHub
-  </a>
-</div>
-  <a href="#main" class="btn btn-primary"><i class="fa-solid fa-chevron-down"></i> View Projects</a>
-  <div class="scroll-cue" aria-hidden="true">
-    <i class="fa-solid fa-angles-down"></i>
-    <span>Scroll</span>
-  </div>
-</header>
-
-<nav id="nav">
-  <span class="nav-brand">Lina Revheim</span>
-  <ul class="nav-links">
-    <li><a href="#main">Projects</a></li>
-    <li><a href="#about-section">About</a></li>
-    <li><a href="#about-section">Contact</a></li>
-  </ul>
-</nav>
-
-<div id="wrapper">
-  <main id="main">
-
-    <h2 class="section-title">Projects</h2>
-
-    <article class="project">
-      <header>
-        <h2><a href="#">Tax Analysis</a></h2>
-        <article class="project">
-  <header>
-    <h2>
-      <a href="#">
-        UK SME Tax Relief Opportunity
-      </a>
-    </h2>
-    <p class="project-meta">
-      Power BI &nbsp;&middot;&nbsp; Tax Analytics &nbsp;&middot;&nbsp; Business Intelligence
+    <p class="tagline">
+      Skilled in <strong>Tableau</strong>
+      &nbsp;&middot;&nbsp;
+      <strong>Power BI</strong>
+      &nbsp;&middot;&nbsp;
+      <strong>Excel</strong>
     </p>
-  </header>
 
-  <div class="project-image">
-  <a href="https://app.powerbi.com/view?r=eyJrIjoiNjJmZjU5ZWMtZTk0Mi00OGQ5LTgyYTUtOTdmOTc1MzQwNjFiIiwidCI6IjQ5YTUwNDQ1LWJkZmEtNGI3OS1hZGUzLTU0N2I0ZjM5ODZlOSIsImMiOjh9">
-    <img src="PORTFOLIO TAX.png"
-         alt="UK SME Tax Relief Opportunity Dashboard" />
-    <div class="overlay"></div>
-  </a>
-</div>
-
-<p>
-  Developed a Power BI dashboard analysing tax relief opportunities across
-  UK SMEs. The analysis identified approximately <strong>£19 million</strong>
-  in potential unclaimed tax savings, with Employment Allowance and Annual
-  Investment Allowance representing 95% of the opportunity. The dashboard
-  provides sector-level insights, tax relief breakdowns, and portfolio-wide
-  opportunity analysis to support strategic financial decision-making.
-</p>
-
-<div class="tags-row">
-  <span class="tools-tag">
-    <i class="fa-brands fa-microsoft"></i> Power BI
-  </span>
-
-  <span class="tools-tag">
-    <i class="fa-solid fa-chart-column"></i> Data Analysis
-  </span>
-
-  <span class="tools-tag">
-    <i class="fa-solid fa-coins"></i> Tax Analytics
-  </span>
-
-  <span class="tools-tag">
-    <i class="fa-solid fa-file-excel"></i> Excel
-  </span>
-</div>
-
-  <a href="https://app.powerbi.com/view?r=eyJrIjoiNjJmZjU5ZWMtZTk0Mi00OGQ5LTgyYTUtOTdmOTc1MzQwNjFiIiwidCI6IjQ5YTUwNDQ1LWJkZmEtNGI3OS1hZGUzLTU0N2I0ZjM5ODZlOSIsImMiOjh9"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="btn btn-primary">
-  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-  View Dashboard
-</a>
-</article>
-        <p class="project-meta">Tableau &nbsp;&middot;&nbsp; Data Analysis</p>
-      </header>
-      <div class="project-image">
-        <a href="https://public.tableau.com/authoring/LinaRevheim/CambridgeRoadCasualtiesHotspots20202024#1">
-          <img src="cambridgecasualties"
-          <div class="overlay"></div>
-        <article class="project">
-  <header>
-    <h2>
-      <a href="https://public.tableau.com/authoring/LinaRevheim/CambridgeRoadCasualtiesHotspots20202024#1">
-        Cambridge Road Casualties
+    <div class="social-row">
+      <a
+        href="https://www.linkedin.com/in/lina-revheim"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+        LinkedIn
       </a>
-    </h2>
-    <p class="project-meta">Tableau &nbsp;&middot;&nbsp; Data Analysis</p>
+
+      <a
+        href="https://github.com/linarevheim-svg"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fa-brands fa-github" aria-hidden="true"></i>
+        GitHub
+      </a>
+    </div>
+
+    <a href="#main" class="btn btn-primary">
+      <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+      View Projects
+    </a>
+
+    <div class="scroll-cue" aria-hidden="true">
+      <i class="fa-solid fa-angles-down"></i>
+      <span>Scroll</span>
+    </div>
   </header>
 
-  <div class="project-image">
-    <a href="https://public.tableau.com/authoring/LinaRevheim/CambridgeRoadCasualtiesHotspots20202024#1">
-      <img
-        src="cambridgecasualties.png"
-        alt="Tableau dashboard showing road casualty hotspots in Cambridge, 2020–2024"
-      />
-      <div class="overlay"></div>
-    </a>
+  <nav id="nav" aria-label="Main navigation">
+    <a href="#header" class="nav-brand">Lina Revheim</a>
+
+    <ul class="nav-links">
+      <li><a href="#main">Projects</a></li>
+      <li><a href="#about-section">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div id="wrapper">
+    <main id="main">
+      <h2 class="section-title">Projects</h2>
+
+      <!-- UK SME Tax Relief Opportunity -->
+
+      <article class="project">
+        <header>
+          <h2>
+            <a href="https://app.powerbi.com/view?r=eyJrIjoiNjJmZjU5ZWMtZTk0Mi00OGQ5LTgyYTUtOTdmOTc1MzQwNjFiIiwidCI6IjQ5YTUwNDQ1LWJkZmEtNGI3OS1hZGUzLTU0N2I0ZjM5ODZlOSIsImMiOjh9">
+              UK SME Tax Relief Opportunity
+            </a>
+          </h2>
+
+          <p class="project-meta">
+            Power BI &nbsp;&middot;&nbsp;
+            Tax Analytics &nbsp;&middot;&nbsp;
+            Business Intelligence
+          </p>
+        </header>
+
+        <div class="project-image">
+          <a href="https://app.powerbi.com/view?r=eyJrIjoiNjJmZjU5ZWMtZTk0Mi00OGQ5LTgyYTUtOTdmOTc1MzQwNjFiIiwidCI6IjQ5YTUwNDQ1LWJkZmEtNGI3OS1hZGUzLTU0N2I0ZjM5ODZlOSIsImMiOjh9">
+            <img
+              src="PORTFOLIO%20TAX.png"
+              alt="UK SME Tax Relief Opportunity Dashboard"
+              loading="lazy"
+            />
+            <div class="overlay" aria-hidden="true"></div>
+          </a>
+        </div>
+
+        <p>
+          Developed a Power BI dashboard analysing tax relief opportunities
+          across UK SMEs. The analysis identified approximately
+          <strong>£19 million</strong> in potential unclaimed tax savings,
+          with Employment Allowance and Annual Investment Allowance
+          representing 95% of the opportunity. The dashboard provides
+          sector-level insights, tax relief breakdowns, and portfolio-wide
+          opportunity analysis to support strategic financial decision-making.
+        </p>
+
+        <div class="tags-row">
+          <span class="tools-tag">
+            <i class="fa-brands fa-microsoft" aria-hidden="true"></i>
+            Power BI
+          </span>
+          <span class="tools-tag">
+            <i class="fa-solid fa-chart-column" aria-hidden="true"></i>
+            Data Analysis
+          </span>
+          <span class="tools-tag">
+            <i class="fa-solid fa-coins" aria-hidden="true"></i>
+            Tax Analytics
+          </span>
+          <span class="tools-tag">
+            <i class="fa-solid fa-file-excel" aria-hidden="true"></i>
+            Excel
+          </span>
+        </div>
+
+        <a
+          href="https://app.powerbi.com/view?r=eyJrIjoiNjJmZjU5ZWMtZTk0Mi00OGQ5LTgyYTUtOTdmOTc1MzQwNjFiIiwidCI6IjQ5YTUwNDQ1LWJkZmEtNGI3OS1hZGUzLTU0N2I0ZjM5ODZlOSIsImMiOjh9"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          View Dashboard
+        </a>
+      </article>
+
+      <!-- Cambridge Road Casualties -->
+
+      <article class="project">
+        <header>
+          <h2>
+            <a href="https://public.tableau.com/authoring/LinaRevheim/CambridgeRoadCasualtiesHotspots20202024#1">
+              Cambridge Road Casualties
+            </a>
+          </h2>
+
+          <p class="project-meta">
+            Tableau &nbsp;&middot;&nbsp; Data Analysis
+          </p>
+        </header>
+
+        <div class="project-image">
+          <a href="https://public.tableau.com/authoring/LinaRevheim/CambridgeRoadCasualtiesHotspots20202024#1">
+            <img
+              src="cambridgecasualties.png"
+              alt="Tableau dashboard showing road casualty hotspots in Cambridge, 2020–2024"
+              loading="lazy"
+            />
+            <div class="overlay" aria-hidden="true"></div>
+          </a>
+        </div>
+
+        <p>
+          Tableau dashboard analysing road incidents in Cambridge,
+          United Kingdom.
+        </p>
+
+        <div class="tags-row">
+          <span class="tools-tag">
+            <i class="fa-solid fa-chart-bar" aria-hidden="true"></i>
+            Tableau
+          </span>
+          <span class="tools-tag">
+            <i class="fa-solid fa-file-excel" aria-hidden="true"></i>
+            Excel
+          </span>
+        </div>
+
+        <a
+          href="https://public.tableau.com/authoring/LinaRevheim/CambridgeRoadCasualtiesHotspots20202024#1"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          View Dashboard
+        </a>
+      </article>
+
+      <!-- Replace the SQL project's href="#" values with its actual URL. -->
+
+      <article class="project">
+        <header>
+          <h2><a href="#">SQL Data Exploration</a></h2>
+          <p class="project-meta">
+            SQL Server &nbsp;&middot;&nbsp; Data Analysis
+          </p>
+        </header>
+
+        <div class="project-image">
+          <a href="#">
+            <img
+              src="https://images.unsplash.com/photo-1633412802994-5c058f151b66?w=900&amp;q=70"
+              alt="SQL project preview"
+              loading="lazy"
+            />
+            <div class="overlay" aria-hidden="true"></div>
+          </a>
+        </div>
+
+        <p>
+          Explored a large transactional dataset using SQL Server to identify
+          revenue trends, customer segments, and seasonal patterns. Wrote
+          optimised queries with CTEs and window functions to deliver
+          actionable business insights from raw data.
+        </p>
+
+        <div class="tags-row">
+          <span class="tools-tag">
+            <i class="fa-solid fa-database" aria-hidden="true"></i>
+            SQL
+          </span>
+          <span class="tools-tag">
+            <i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>
+            Data Analysis
+          </span>
+        </div>
+
+        <a href="#" class="btn btn-primary">
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+          View on GitHub
+        </a>
+      </article>
+
+      <!-- Replace the SharePoint project's href="#" values with its actual URL. -->
+
+      <article class="project">
+        <header>
+          <h2><a href="#">SharePoint Governance Report</a></h2>
+          <p class="project-meta">
+            Power BI &nbsp;&middot;&nbsp;
+            SharePoint &nbsp;&middot;&nbsp;
+            Excel
+          </p>
+        </header>
+
+        <div class="project-image">
+          <a href="#">
+            <img
+              src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=900&amp;q=70"
+              alt="SharePoint report preview"
+              loading="lazy"
+            />
+            <div class="overlay" aria-hidden="true"></div>
+          </a>
+        </div>
+
+        <p>
+          Built a Power BI report to audit SharePoint usage, permissions, and
+          file storage across the organisation. Automated data refresh from
+          SharePoint APIs, reducing manual reporting effort by 80&thinsp;%
+          and enabling the IT team to act on governance risks in real time.
+        </p>
+
+        <div class="tags-row">
+          <span class="tools-tag">
+            <i class="fa-brands fa-microsoft" aria-hidden="true"></i>
+            Power BI
+          </span>
+          <span class="tools-tag">
+            <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+            SharePoint
+          </span>
+          <span class="tools-tag">
+            <i class="fa-solid fa-file-excel" aria-hidden="true"></i>
+            Excel
+          </span>
+        </div>
+
+        <a href="#" class="btn btn-primary">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          View Project
+        </a>
+      </article>
+    </main>
+
+    <hr class="divider" />
+
+    <section id="about-section" aria-labelledby="about-title">
+      <div id="about">
+        <div class="about-text">
+          <h2 id="about-title" class="section-title">About Me</h2>
+
+          <h3>Who I Am</h3>
+          <p>
+            I&rsquo;m a Business &amp; Data Analyst based in Cambridge, UK
+            with a strong passion for data analytics. I specialise in
+            transforming raw, messy data into clear, actionable insights
+            that drive business decisions.
+          </p>
+
+          <h3>What I Do</h3>
+          <p>
+            From designing interactive dashboards in Tableau and Power BI,
+            to understanding the business drivers &mdash; I bridge the gap
+            between raw data and meaningful stories.
+          </p>
+
+          <h3>Skills</h3>
+          <ul class="skills-list">
+            <li>Tableau</li>
+            <li>Power BI</li>
+            <li>Excel</li>
+            <li>Data Visualisation</li>
+            <li>Business &amp; Data Analysis</li>
+            <li>Data Cleaning</li>
+            <li>Process Modelling</li>
+          </ul>
+        </div>
+
+        <div id="contact">
+          <h2 class="section-title">Contact</h2>
+
+          <div id="contact-card">
+            <h3>Get in Touch</h3>
+
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              <span>Cambridge, United Kingdom</span>
+            </div>
+
+            <div class="contact-item">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+              <span>
+                <a href="mailto:lina.revheim@outlook.com">
+                  lina.revheim@outlook.com
+                </a>
+              </span>
+            </div>
+
+            <div class="contact-social">
+              <a
+                href="https://www.linkedin.com/in/lina-revheim"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+              </a>
+
+              <a
+                href="https://github.com/linarevheim-svg"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+              </a>
+
+              <a
+                href="https://public.tableau.com/app/profile/lina.revheim/vizzes"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Tableau Public"
+              >
+                <i class="fa-solid fa-chart-bar" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 
-  <p>
-    Tableau dashboard analysing road incidents in Cambridge, United Kingdom.
-  </p>
+  <footer id="footer">
+    <p>
+      &copy; Lina Revheim &nbsp;&middot;&nbsp;
+      Design inspired by
+      <a
+        href="https://html5up.net"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        HTML5 UP
+      </a>
+    </p>
+  </footer>
 
-  <div class="tags-row">
-    <span class="tools-tag">
-      <i class="fa-solid fa-chart-bar" aria-hidden="true"></i> Tableau
-    </span>
-    <span class="tools-tag">
-      <i class="fa-solid fa-file-excel" aria-hidden="true"></i> Excel
-    </span>
-  </div>
-
-  <a
-    href="https://public.tableau.com/authoring/LinaRevheim/CambridgeRoadCasualtiesHotspots20202024#1"
-    class="btn btn-primary"
-  >
-    <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-    View Dashboard
-  </a>
-</article>
+</body>
+</html>
